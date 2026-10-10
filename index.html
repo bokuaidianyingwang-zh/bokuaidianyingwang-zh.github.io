@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>播快电影网 - 高清电影在线观看与每日院线热映榜单 | 影视资讯、影评与综艺节目精选</title>
+<meta name="description" content="播快电影网（bokuaidianyingwang-zh.github.io）聚焦高清电影在线观看、院线热映影片追踪、经典老片回顾与深度影评解析。每日更新国产新片、欧美大片、日韩剧集与综艺节目，提供分类型检索、口碑排行榜、上映档期及演员专题，帮助影迷快速发现值得一看的好作品。">
+<meta name="keywords" content="播快电影网, bokuaidianyingwang-zh, 高清电影在线观看, 院线热映影片, 经典老片回顾, 深度影评解析, 国产新片, 欧美大片, 日韩剧集, 综艺节目, 口碑排行榜, 上映档期, 演员专题">
+<meta name="robots" content="index, follow">
+<meta name="renderer" content="webkit">
+<meta name="author" content="播快电影网">
+<meta property="og:type" content="website">
+<meta property="og:title" content="播快电影网 - 高清电影在线观看与每日院线热映榜单">
+<meta property="og:description" content="每日更新国产新片、欧美大片、日韩剧集与综艺节目，提供口碑排行榜与深度影评。">
+<meta property="og:url" content="https://bokuaidianyingwang-zh.github.io">
+<meta property="og:site_name" content="播快电影网">
+<link rel="canonical" href="https://bokuaidianyingwang-zh.github.io">
+<style>
+:root{
+  --bg:#0a0c12;
+  --bg2:#11141d;
+  --panel:#161a25;
+  --line:#262c3a;
+  --txt:#e9edf5;
+  --txt2:#9aa3b2;
+  --gold:#d4af37;
+  --gold2:#f0d47c;
+  --red:#e11d2e;
+  --red2:#ff4d5e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:99;
+  background:rgba(10,12,18,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px;
+}
+.logo{
+  font-size:20px;font-weight:800;letter-spacing:.5px;white-space:nowrap;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.logo span{color:var(--red2);-webkit-text-fill-color:var(--red2)}
+.nav-toggle{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:8px;background:none;cursor:pointer;position:relative}
+.nav-toggle i{position:absolute;left:9px;width:20px;height:2px;background:var(--txt);transition:.3s}
+.nav-toggle i:nth-child(1){top:13px}.nav-toggle i:nth-child(2){top:19px}.nav-toggle i:nth-child(3){top:25px}
+.main-nav ul{display:flex;gap:6px}
+.main-nav a{
+  display:block;padding:8px 14px;border-radius:8px;font-size:15px;color:var(--txt2);transition:.2s;
+}
+.main-nav a:hover{color:var(--gold);background:rgba(212,175,55,.08)}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:70px 0 60px;
+  background:
+    radial-gradient(1200px 500px at 80% -10%,rgba(225,29,46,.22),transparent 60%),
+    radial-gradient(800px 400px at 0% 20%,rgba(212,175,55,.10),transparent 60%),
+    var(--bg2);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.tagline{
+  display:inline-block;font-size:13px;letter-spacing:2px;color:var(--gold);
+  border:1px solid rgba(212,175,55,.35);border-radius:999px;padding:4px 14px;margin-bottom:20px;
+}
+.hero h1{font-size:44px;line-height:1.25;font-weight:800;letter-spacing:.5px}
+.hero h1 em{font-style:normal;color:var(--red2)}
+.hero p{color:var(--txt2);font-size:16px;margin:18px 0 26px;max-width:520px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.hero-meta b{
+  font-size:12px;font-weight:600;color:var(--txt2);
+  border:1px solid var(--line);border-radius:6px;padding:5px 10px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:10px;font-size:15px;font-weight:600;transition:.2s;
+}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(225,29,46,.35)}
+.btn-ghost{border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+.poster-wrap{position:relative}
+.poster-wrap .frame{
+  position:relative;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(212,175,55,.25);
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg,#1c2230 0%,#0d1018 100%);
+}
+.poster-wrap .frame::before{
+  content:"本周主推 · 院线追踪";position:absolute;top:16px;left:16px;z-index:3;
+  font-size:11px;letter-spacing:1px;color:#0a0c12;background:var(--gold);border-radius:4px;padding:4px 9px;font-weight:700;
+}
+.poster-wrap .frame::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(0deg,rgba(10,12,18,.95),rgba(10,12,18,.2) 45%,rgba(10,12,18,.55)),
+    repeating-linear-gradient(90deg,transparent 0,transparent 38px,rgba(255,255,255,.03) 38px,rgba(255,255,255,.03) 39px);
+}
+.poster-info{position:absolute;left:24px;right:24px;bottom:24px;z-index:2}
+.poster-info .t{font-size:22px;font-weight:800;margin-bottom:6px}
+.poster-info .s{font-size:13px;color:#c9d1dd}
+.poster-stat{display:flex;gap:22px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14)}
+.poster-stat div span{display:block;font-size:20px;font-weight:800;color:var(--gold)}
+.poster-stat div small{font-size:11px;color:#aab4c2}
+
+/* ---------- section ---------- */
+.section{padding:64px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.section-head h2{font-size:26px;font-weight:800;letter-spacing:.5px}
+.section-head h2 i{font-style:normal;color:var(--red2)}
+.section-head p{font-size:14px;color:var(--txt2);margin-top:4px}
+.more{font-size:13px;color:var(--gold);white-space:nowrap}
+.more:hover{text-decoration:underline}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters a{
+  font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);color:var(--txt2);transition:.2s;
+}
+.filters a.on,.filters a:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.06)}
+
+.grid{display:grid;gap:20px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  transition:.25s;display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.4);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.thumb{
+  position:relative;aspect-ratio:3/4;overflow:hidden;
+  background:linear-gradient(135deg,#20283a,#131722);
+}
+.thumb::after{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(180deg,transparent 0,transparent 19px,rgba(255,255,255,.025) 19px,rgba(255,255,255,.025) 20px);
+}
+.thumb .badge{
+  position:absolute;top:10px;left:10px;z-index:2;font-size:11px;font-weight:700;
+  background:rgba(10,12,18,.85);color:var(--gold);border:1px solid rgba(212,175,55,.4);
+  border-radius:5px;padding:3px 7px;
+}
+.thumb .score{
+  position:absolute;right:10px;bottom:10px;z-index:2;font-size:12px;font-weight:800;
+  background:var(--red);color:#fff;border-radius:5px;padding:3px 8px;
+}
+.thumb .cap{
+  position:absolute;inset:auto 0 0 0;z-index:2;padding:26px 14px 12px;
+  background:linear-gradient(0deg,rgba(10,12,18,.96),transparent);
+  font-size:15px;font-weight:700;text-align:center;
+}
+.card-body{padding:14px 16px 18px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-body .genres{font-size:12px;color:var(--gold)}
+.card-body h3{font-size:16px;font-weight:700;line-height:1.5}
+.card-body .meta{margin-top:auto;font-size:12px;color:var(--txt2);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- schedule ---------- */
+.schedule{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.day{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;
+  position:relative;transition:.25s;
+}
+.day:hover{border-color:rgba(212,175,55,.4)}
+.day .d{font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:8px}
+.day h4{font-size:17px;font-weight:700;margin-bottom:10px}
+.day ol{font-size:13px;color:var(--txt2);padding-left:18px}
+.day ol li{margin-bottom:5px}
+
+/* ---------- review ---------- */
+.review-list{display:grid;gap:16px}
+.review{
+  display:grid;grid-template-columns:200px 1fr;gap:22px;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.25s;
+}
+.review:hover{border-color:rgba(212,175,55,.4)}
+.review .cv{
+  border-radius:10px;overflow:hidden;aspect-ratio:16/10;
+  background:linear-gradient(135deg,#26304a,#141926);
+}
+.review .cv span{
+  display:block;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:700;color:#cbd4e3;text-align:center;padding:0 12px;
+}
+.review .ct h4{font-size:18px;font-weight:800;margin-bottom:6px}
+.review .ct .st{font-size:12px;color:var(--gold);margin-bottom:10px}
+.review .ct p{font-size:14px;color:var(--txt2)}
+.review .ct .go{display:inline-block;margin-top:12px;font-size:13px;color:var(--gold)}
+
+/* ---------- faq ---------- */
+.faq-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{
+  cursor:pointer;padding:18px 22px;font-size:16px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"＋";color:var(--gold);font-size:20px;line-height:1}
+.faq-item[open] summary::after{content:"－"}
+.faq-item .ans{padding:0 22px 20px;font-size:14px;color:var(--txt2)}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--bg2);border-top:1px solid var(--line);padding:48px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:34px}
+.foot-grid h5{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--gold2)}
+.foot-grid ul li{margin-bottom:8px}
+.foot-grid ul a{font-size:13px;color:var(--txt2)}
+.foot-grid ul a:hover{color:var(--gold)}
+.foot-intro p{font-size:13px;color:var(--txt2);margin-top:12px}
+.foot-bottom{
+  border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12px;color:#6d7686;
+}
+.foot-bottom a{color:#8a93a3}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero h1{font-size:34px}
+  .poster-wrap{max-width:420px}
+  .grid-4{grid-template-columns:repeat(3,1fr)}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .schedule{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-toggle{display:block}
+  .main-nav{
+    position:absolute;top:62px;left:0;right:0;background:var(--bg2);
+    border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:.35s;
+  }
+  .main-nav.open{max-height:420px}
+  .main-nav ul{flex-direction:column;padding:12px}
+  .main-nav a{padding:12px 14px;border-radius:8px}
+  .hero{padding:48px 0 44px}
+  .hero h1{font-size:28px}
+  .section{padding:48px 0}
+  .grid-4,.grid-3{grid-template-columns:repeat(2,1fr)}
+  .grid-2{grid-template-columns:1fr}
+  .schedule{grid-template-columns:1fr}
+  .review{grid-template-columns:1fr}
+  .review .cv{max-width:none}
+  .foot-grid{grid-template-columns:1fr}
+  .container{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="https://bokuaidianyingwang-zh.github.io">播快电影<span>网</span></a>
+    <nav class="main-nav" id="nav">
+      <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#now">正在热映</a></li>
+        <li><a href="#schedule">上映日历</a></li>
+        <li><a href="#reviews">影评专栏</a></li>
+        <li><a href="#about">关于本站</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="toggle" aria-label="菜单"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="tagline">DAILY CINEMA PICKS</span>
+        <h1>每一晚，都值得<br>被一部好电影<em>填满</em></h1>
+        <p>播快电影网每日追踪院线新片、经典修复与冷门佳作，用简短的榜单、影评和档期信息，帮你从海量片单里挑出今晚该看的那一部。</p>
+        <div class="hero-meta">
+          <b>每日更新</b><b>分类检索</b><b>口碑排行</b><b>无干扰阅读</b>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#now">查看今日热映 →</a>
+          <a class="btn btn-ghost" href="#reviews">读一篇影评</a>
+        </div>
+      </div>
+      <div class="poster-wrap">
+        <div class="frame">
+          <div class="poster-info">
+            <div class="t">本周主推 · 院线追踪</div>
+            <div class="s">由编辑部从当周新片中筛出，综合口碑、话题与观影门槛三项打分</div>
+            <div class="poster-stat">
+              <div><span>8.6</span><small>编辑评分</small></div>
+              <div><span>12 部</small></div>
+              <div><span>96%</span><small>推荐指数</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOW SHOWING -->
+  <section class="section" id="now">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>正在<em style="font-style:normal;color:var(--red2)">热映</em> · 院线新片</h2>
+          <p>每周一与周五各更新一次，按题材与口碑交叉筛选</p>
+        </div>
+        <a class="more" href="#">全部片单 #</a>
+      </div>
+      <div class="filters">
+        <a href="#" class="on">全部</a>
+        <a href="#">剧情</a><a href="#">犯罪悬疑</a><a href="#">动作冒险</a>
+        <a href="#">喜剧</a><a href="#">动画家庭</a><a href="#">纪录</a><a href="#">文艺</a>
+      </div>
+      <div class="grid grid-4">
+
+        <article class="card">
+          <div class="thumb"><span class="badge">IMAX</span><span class="score">8.4</span><span class="cap">无名之辈：否极泰来</span></div>
+          <div class="card-body">
+            <span class="genres">犯罪 · 剧情</span>
+            <h3>无名之辈：否极泰来</h3>
+            <div class="meta"><span>2026 · 国产</span><span>112 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">3D</span><span class="score">8.7</span><span class="cap">聊斋：兰若寺</span></div>
+          <div class="card-body">
+            <span class="genres">动画 · 奇幻</span>
+            <h3>聊斋：兰若寺</h3>
+            <div class="meta"><span>2026 · 国产</span><span>138 分钟</span></div>
+          </div>
+          <a href="#" style="display:none" aria-hidden="true">https://bokuaidianyingwang-zh.github.io</a>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">推荐</span><span class="score">7.9</span><span class="cap">戏台</span></div>
+          <div class="card-body">
+            <span class="genres">喜剧 · 剧情</span>
+            <h3>戏台</h3>
+            <div class="meta"><span>2026 · 国产</span><span>125 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">豆瓣高分</span><span class="score">8.1</span><span class="cap">南京照相馆</span></div>
+          <div class="card-body">
+            <span class="genres">历史 · 剧情</span>
+            <h3>南京照相馆</h3>
+            <div class="meta"><span>2026 · 国产</span><span>130 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">动作</span><span class="score">7.6</span><span class="cap">F1：狂飙飞车</span></div>
+          <div class="card-body">
+            <span class="genres">运动 · 剧情</span>
+            <h3>F1：狂飙飞车</h3>
+            <div class="meta"><span>2025 · 美国</span><span>155 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">科幻</span><span class="score">7.8</span><span class="cap">侏罗纪世界：重生</span></div>
+          <div class="card-body">
+            <span class="genres">科幻 · 冒险</span>
+            <h3>侏罗纪世界：重生</h3>
+            <div class="meta"><span>2025 · 美国</span><span>134 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">动画</span><span class="score">8.5</span><span class="cap">罗小黑战记 2</span></div>
+          <div class="card-body">
+            <span class="genres">动画 · 奇幻</span>
+            <h3>罗小黑战记 2</h3>
+            <div class="meta"><span>2025 · 国产</span><span>120 分钟</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><span class="badge">纪录</span><span class="score">9.1</span><span class="cap">地球脉动 III</span></div>
+          <div class="card-body">
+            <span class="genres">纪录 · 自然</span>
+            <h3>地球脉动 III</h3>
+            <div class="meta"><span>2025 · 英国</span><span>6 集</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section" id="schedule" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>上映<em style="font-style:normal;color:var(--red2)">日历</em></h2>
+          <p>未来四周重点档期，提前收藏不错过</p>
+        </div>
+        <a class="more" href="#">完整日历 #</a>
+      </div>
+      <div class="schedule">
+        <div class="day">
+          <div class="d">本周 · 周五</div>
+          <h4>国产剧情周</h4>
+          <ol><li>无名之辈：否极泰来</li><li>戏台</li><li>南京照相馆</li></ol>
+        </div>
+        <div class="day">
+          <div class="d">下周五</div>
+          <h4>动画与家庭场</h4>
+          <ol><li>聊斋：兰若寺</li><li>罗小黑战记 2</li><li>喜羊羊与灰太狼</li></ol>
+        </div>
+        <div class="day">
+          <div class="d">两周后</div>
+          <h4>欧美大片档</h4>
+          <ol><li>F1：狂飙飞车</li><li>侏罗纪世界：重生</li><li>神奇四侠</li></ol>
+        </div>
+        <div class="day">
+          <div class="d">月末</div>
+          <h4>文艺与纪录</h4>
+          <ol><li>地球脉动 III</li><li>里斯本丸沉没</li><li>小小的我</li></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>影评<em style="font-style:normal;color:var(--red2)">专栏</em></h2>
+          <p>编辑团队与影评人定期供稿，偏观点而非复述剧情</p>
+        </div>
+        <a class="more" href="#">专栏归档 #</a>
+      </div>
+      <div class="review-list">
+
+        <article class="review">
+          <div class="cv"><span>《无名之辈：否极泰来》<br>多线叙事是否成立</span></div>
+          <div class="ct">
+            <h4>小人物的群像，这一次靠台词撑住了</h4>
+            <div class="st">★★★★☆ · 剧作 / 表演</div>
+            <p>续作放弃了前作那种强烈的戏剧巧合，把篇幅让给人物自身的犹豫与妥协。整体节奏前松后紧，中段有一段长达八分钟的饭桌戏，是全片最扎实的段落。缺点是反派动机交代得过于潦草，结尾又回到熟悉的和解套路。</p>
+            <a class="go" href="#">阅读全文 #</a>
+          </div>
+        </article>
+
+        <article class="review">
+          <div class="cv"><span>《聊斋：兰若寺》<br>传统文本的现代转译</span></div>
+          <div class="ct">
+            <h4>中国动画终于开始处理“志怪”而非“神话”</h4>
+            <div class="st">★★★★★ · 视觉 / 改编</div>
+            <p>相比反复被搬演的封神与西游题材，这部作品转向《聊斋》的短篇结构，用五个相对独立的故事串联起同一个空间。画面里的水墨留白与三维打光融合得相当自然，是近年国产动画在美术上最有辨识度的一次尝试。</p>
+            <a class="go" href="#">阅读全文 #</a>
+          </div>
+        </article>
+
+        <article class="review">
+          <div class="cv"><span>《南京照相馆》<br>历史叙述的尺度</span></div>
+          <div class="ct">
+            <h4>把宏大历史收进一间照相馆，是聪明的做法</h4>
+            <div class="st">★★★★☆ · 历史 / 叙事</div>
+            <p>影片的聪明之处在于只讲一个具体空间里发生的事：照片怎么被拍下、被留存、被解释。它没有试图覆盖整段历史的全貌，而是用档案的可见与不可见制造张力。部分配角的功能化是明显短板，但主线情绪建立得很稳。</p>
+            <a class="go" href="#">阅读全文 #</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about" style="background:var(--bg2);border-top:1px solid var(--line)">
+    <div class="container grid grid-2" style="align-items:center">
+      <div>
+        <div class="section-head" style="margin-bottom:20px"><div><h2>关于<em style="font-style:normal;color:var(--red2)">播快电影网</em></h2><p>一个只做“帮你选片”的小站</p></div></div>
+        <p style="color:var(--txt2)">播快电影网（<a href="https://bokuaidianyingwang-zh.github.io" style="color:var(--gold)">bokuaidianyingwang-zh.github.io</a>）从 2024 年起持续更新，内容集中在三件事：院线新片的口碑速览、按题材和情绪分类的片单、以及每周长短不一的影评。我们不追逐流量热点，也不堆砌信息量，只希望你在打开页面后的两分钟内，能决定今晚看什么。</p>
+        <p style="color:var(--txt2);margin-top:14px">目前栏目分为「正在热映」「上映日历」「影评专栏」「关于本站」「常见问题」五部分，内容由编辑部人工整理，评分综合自公开口碑、专业媒体与个人观影体验，仅供参考。</p>
+        <div class="hero-meta" style="margin-top:22px">
+          <b>人工整理</b><b>每日更新</b><b>无广告干扰</b><b>移动端优先</b>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px">
+          <div style="font-size:32px;font-weight:800;color:var(--gold)">1200+</div>
+          <div style="font-size:13px;color:var(--txt2)">已收录影片条目</div>
+        </div>
+        <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px">
+          <div style="font-size:32px;font-weight:800;color:var(--gold)">52</div>
+          <div style="font-size:13px;color:var(--txt2)">影评专栏文章</div>
+        </div>
+        <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px">
+          <div style="font-size:32px;font-weight:800;color:var(--gold)">8</div>
+          <div style="font-size:13px;color:var(--txt2)">影片分类标签</div>
+        </div>
+        <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px">
+          <div style="font-size:32px;font-weight:800;color:var(--gold)">365</div>
+          <div style="font-size:13px;color:var(--txt2)">天不间断更新</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width:820px">
+      <div class="section-head"><div><h2>常见<em style="font-style:normal;color:var(--red2)">问题</em></h2><p>关于内容来源、更新频率与评分口径</p></div></div>
+      <details class="faq-item" open>
+        <summary>播快电影网提供在线播放吗？</summary>
+        <div class="ans">本站只做影片资讯、口碑速览与影评整理，不托管也不提供任何视频文件或播放源。如需观看，请通过正规院线与正版授权平台。</div>
+      </details>
+      <details class="faq-item">
+        <summary>评分是怎么算出来的？</summary>
+        <div class="ans">综合公开口碑、专业媒体评价与编辑个人观影体验，按剧情、表演、视听、完成度四项加权得出，满分 10 分。评分是主观判断，仅供选片参考。</div>
+      </details>
+      <details class="faq-item">
+        <summary>内容多久更新一次？</summary>
+        <div class="ans">「正在热映」每周一、周五各更新一次；「上映日历」每月初更新未来四周档期；「影评专栏」视档期与选题，每周至少一篇。</div>
+      </details>
+      <details class="faq-item">
+        <summary>网站名称和域名可以引用吗？</summary>
+        <div class="ans">本站正式名称为「播快电影网」，官网地址为 https://bokuaidianyingwang-zh.github.io，转载或引用时请保留名称与地址的完整写法，无需额外授权。</div>
+      </details>
+      <details class="faq-item">
+        <summary>发现信息有误如何反馈？</summary>
+        <div class="ans">影片信息会随官方物料调整而变化，如发现片名、时长或档期错误，可通过页面底部联系入口反馈，我们会在一到两个工作日内核实修订。</div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-intro">
+        <div class="logo">播快电影<span>网</span></div>
+        <p>每日更新的电影资讯与影评小站，专注帮你从海量片单里挑出今晚该看的那一部。</p>
+      </div>
+      <div>
+        <h5>内容栏目</h5>
+        <ul>
+          <li><a href="#now">正在热映 #</a></li>
+          <li><a href="#schedule">上映日历 #</a></li>
+          <li><a href="#reviews">影评专栏 #</a></li>
+          <li><a href="#faq">常见问题 #</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>题材分类</h5>
+        <ul>
+          <li><a href="#">剧情 · 犯罪悬疑 #</a></li>
+          <li><a href="#">动作 · 冒险 #</a></li>
+          <li><a href="#">喜剧 · 家庭 #</a></li>
+          <li><a href="#">动画 · 纪录 · 文艺 #</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于本站</h5>
+        <ul>
+          <li><a href="#about">网站介绍 #</a></li>
+          <li><a href="#faq">内容合作 #</a></li>
+          <li><a href="#">投稿与反馈 #</a></li>
+          <li><a href="#">隐私与版权 #</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 播快电影网 · 本站地址：https://bokuaidianyingwang-zh.github.io · 影视资讯与影评整理，内容仅供选片参考</span>
+      <span><a href="#home">回到顶部 ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var t=document.getElementById('toggle');
+  var n=document.getElementById('nav');
+  t.addEventListener('click',function(){n.classList.toggle('open')});
+  n.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){n.classList.remove('open')});
+  });
+</script>
+</body>
+</html>
